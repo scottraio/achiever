@@ -18,8 +18,8 @@ Run the migration
 Getting Started
 ---------------
 
-1. Define your achievements
-
+Define your achievements
+	
 	achieves :something, when(true)
 
 
