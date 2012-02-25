@@ -1,6 +1,6 @@
 require "achiever/achievement"
 require "achiever/achiever"
 
-if defined?(ActiveRecord::Base)
-	ActiveRecord::Base.extend Achiever
+class ActiveRecord::Base
+  include Achiever
 end
