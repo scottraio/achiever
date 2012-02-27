@@ -1,27 +1,25 @@
-require "active_record"
-
-
 module Achiever
 
   ALL_ACHIEVEMENTS = []
 
-	def achieves(object, options={})
-		ALL_ACHIEVEMENTS << object
+	def achieves(award, options={})
+		ALL_ACHIEVEMENTS << award
 
 		user = options[:for]
 
-		class_eval <<-EOV
-			after_save :award_#{object.to_s}?
+		class_eval <<-EOF
+			after_save :award_#{something.to_s}?
+			
+			def award_#{something.to_s}?
+				achievement 		= Achievements::#{something.to_s.camelize}.new :user => self.#{user}
+				achievement.model	= self 	
 
-			class << self
-				def award_#{object.to_s}?
-					achievement 		= #{object.to_s.camelize}Achievement.new :user => self.send(user)
-					achievement.obj		= self	
-
-					achievement.awarded if achievement.award?
+				if achievement.award?
+					achievement.save
 				end
 			end
-		EOV
+			
+		EOF
 	end
 	
 end

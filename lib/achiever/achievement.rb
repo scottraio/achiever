@@ -4,4 +4,8 @@ class Achievement < ActiveRecord::Base
 
 	validates :type, :uniqueness => {:scope => :user_id}
 
+	after_save :awarded
+
+	attr_accessor :model
+
 end
