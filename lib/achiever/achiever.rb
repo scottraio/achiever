@@ -8,10 +8,10 @@ module Achiever
 		user = options[:for]
 
 		class_eval <<-EOF
-			after_save :award_#{something.to_s}?
+			after_save :award_#{award.to_s}?
 			
-			def award_#{something.to_s}?
-				achievement 		= Achievements::#{something.to_s.camelize}.new :user => self.#{user}
+			def award_#{award.to_s}?
+				achievement 		= Achievements::#{award.to_s.camelize}.new :user => self.#{user}
 				achievement.model	= self 	
 
 				if achievement.award?
