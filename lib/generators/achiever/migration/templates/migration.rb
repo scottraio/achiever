@@ -1,4 +1,4 @@
-class AchieverCreateTable < ActiveRecord::Migration
+class CreateAchieverTable < ActiveRecord::Migration
   def change
     create_table :achievements do |t|
       t.integer     :user_id
