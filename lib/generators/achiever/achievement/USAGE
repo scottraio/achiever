@@ -1,0 +1,4 @@
+Description:
+  The achiever:achievement generator creates an Achievement class in the models
+  directory. You can move this file anywhere you want as long as it
+  is in the load path.
